@@ -137,14 +137,14 @@ CREATE TABLE movie_characters (
 
 CREATE TABLE actor_names (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  stage_name TEXT,
+  stage_name TEXT
 ); -- * NOTE * I understand I could have made this part of the characters table...
 -- but long term this extra table seems fit for added details about the actor on a software roadmap
 -- so I decided to make it seperate and connect it via the key -- 
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
--- TODO!
+-- TODO! Done
 
 INSERT INTO movie_data (title, year, mpaa_rating, studio)
 VALUES
@@ -166,31 +166,26 @@ VALUES
     ("Joseph Gordon-Levitt"),
     ("Anne Hathaway");
 
-SELECT *
-FROM actor_names
+INSERT INTO movie_characters (movie_id, actor_id, character_name)
+VALUES 
+    (1,1,"Bruce Wayne"),
+    (1,2,"Alfred"),
+    (1,3,"Ra's Al Ghul"),
+    (1,4,"Rachel Dawes"),
+    (1,5,"Commissioner Gordon"),
+    (2,1,"Bruce Wayne"),
+    (2,6,"Joker"),
+    (2,7,"Harvey Dent"),
+    (2,2,"Alfred"),
+    (2,8,"Rachel Dawes"),
+    (3,1,"Bruce Wayne"),
+    (3,5,"Commissioner Gordon"),
+    (3,8,"Tom Hardy"),
+    (3,9,"John Blake"),
+    (3,10,"Selina Kyle");
 
-
--- INSERT INTO movie_characters (character_name)
--- VALUES
---     ("Bruce Wayne"),
---     ("Alfred" ),
---     ("Ra's Al Ghul");
-
--- Batman Begins          Christian Bale        Bruce Wayne
--- Batman Begins          Michael Caine         Alfred
--- Batman Begins          Liam Neeson           Ra's Al Ghul
--- Batman Begins          Katie Holmes          Rachel Dawes
--- Batman Begins          Gary Oldman           Commissioner Gordon
--- The Dark Knight        Christian Bale        Bruce Wayne
--- The Dark Knight        Heath Ledger          Joker
--- The Dark Knight        Aaron Eckhart         Harvey Dent
--- The Dark Knight        Michael Caine         Alfred
--- The Dark Knight        Maggie Gyllenhaal     Rachel Dawes
--- The Dark Knight Rises  Christian Bale        Bruce Wayne
--- The Dark Knight Rises  Gary Oldman           Commissioner Gordon
--- The Dark Knight Rises  Tom Hardy             Bane
--- The Dark Knight Rises  Joseph Gordon-Levitt  John Blake
--- The Dark Knight Rises  Anne Hathaway         Selina Kyle
+    SELECT *
+    FROM movie_characters;
 
 
 
