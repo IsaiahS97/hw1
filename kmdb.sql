@@ -195,8 +195,6 @@ VALUES
 -- The SQL statement for the movies output
 -- TODO! DONE
 
-SELECT *
-FROM movie_data;
 
 -- Prints a header for the cast output
 .print ""
