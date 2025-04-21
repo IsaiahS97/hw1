@@ -212,4 +212,4 @@ LEFT JOIN movie_characters
     ON movie_data.id = movie_characters.movie_id
 LEFT JOIN actor_names
     ON actor_names.id = movie_characters.actor_id
-ORDER BY movie_characters.id;
+ORDER BY movie_characters.id; -- Added the order by id because it kept pulling one name out of order, wanted it to match the sample
