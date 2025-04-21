@@ -180,15 +180,12 @@ VALUES
     (2,8,"Rachel Dawes"),
     (3,1,"Bruce Wayne"),
     (3,5,"Commissioner Gordon"),
-    (3,8,"Tom Hardy"),
-    (3,9,"John Blake"),
-    (3,10,"Selina Kyle");
+    (3,9,"Bane"),
+    (3,10,"John Blake"),
+    (3,11,"Selina Kyle");
 
     SELECT *
     FROM movie_characters;
-
-
-
 
 -- Prints a header for the movies output
 .print "Movies"
@@ -196,10 +193,10 @@ VALUES
 .print ""
 
 -- The SQL statement for the movies output
--- TODO!
+-- TODO! DONE
 
 SELECT *
-FROM movie_characters;
+FROM movie_data;
 
 -- Prints a header for the cast output
 .print ""
@@ -210,3 +207,11 @@ FROM movie_characters;
 
 -- The SQL statement for the cast output
 -- TODO!
+
+SELECT movie_data.title, actor_names.stage_name, movie_characters.character_name
+FROM movie_data
+LEFT JOIN movie_characters
+    ON movie_data.id = movie_characters.movie_id
+LEFT JOIN actor_names
+    ON actor_names.id = movie_characters.actor_id
+ORDER BY movie_characters.id;
