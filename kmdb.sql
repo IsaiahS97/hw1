@@ -111,16 +111,14 @@
 .headers off
 
 -- Drop existing tables, so you'll start fresh each time this script is run.
--- TODO!
+-- TODO! DONE 
 
 DROP TABLE IF EXISTS movie_data;
-
 DROP TABLE IF EXISTS movie_characters;
-
 DROP TABLE IF EXISTS actor_names;
 
 -- Create new tables, according to your domain model
--- TODO!
+-- TODO! DONE 
 
 CREATE TABLE movie_data (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -132,19 +130,33 @@ CREATE TABLE movie_data (
 
 CREATE TABLE movie_characters; (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  first_name TEXT,
-  last_name TEXT
+  actor_id INTEGER,
+  character_name TEXT
 );
 
 CREATE TABLE actor_names (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  first_name TEXT,
-  last_name TEXT
-);
+  stage_name TEXT,
+); -- * NOTE * I understand I could have made this part of the characters table...
+-- but long term this extra table seems fit for added details about the actor on a software roadmap
+-- so I decided to make it seperate and connect it via the key -- 
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
+
+INSERT INTO movie_data (title, year, mpaa_rating, studio)
+VALUES
+    ("Batman Begins", 2005, "PG-13", "Warner Bros."),
+    ("The Dark Knight", 2008, "PG-13", "Warner Bros."),
+    ("The Dark Knight Rises", 2012, "PG-13", "Warner Bros.");
+
+INSERT INTO movie_characters (actor_id, character_name)
+VALUES
+    ("Batman Begins", 2005, "PG-13", "Warner Bros."),
+    ("The Dark Knight", 2008, "PG-13", "Warner Bros."),
+    ("The Dark Knight Rises", 2012, "PG-13", "Warner Bros.");
+
 
 -- Prints a header for the movies output
 .print "Movies"
