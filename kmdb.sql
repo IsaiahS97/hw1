@@ -128,8 +128,9 @@ CREATE TABLE movie_data (
   studio TEXT
 );
 
-CREATE TABLE movie_characters; (
+CREATE TABLE movie_characters (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
+  movie_id INTEGER,
   actor_id INTEGER,
   character_name TEXT
 );
@@ -151,11 +152,47 @@ VALUES
     ("The Dark Knight", 2008, "PG-13", "Warner Bros."),
     ("The Dark Knight Rises", 2012, "PG-13", "Warner Bros.");
 
-INSERT INTO movie_characters (actor_id, character_name)
-VALUES
-    ("Batman Begins", 2005, "PG-13", "Warner Bros."),
-    ("The Dark Knight", 2008, "PG-13", "Warner Bros."),
-    ("The Dark Knight Rises", 2012, "PG-13", "Warner Bros.");
+INSERT INTO actor_names (stage_name)
+VALUES 
+    ("Christian Bale"),
+    ("Michael Caine"),
+    ("Liam Neeson"),
+    ("Katie Holmes"),
+    ("Gary Oldman"),
+    ("Heath Ledger"),
+    ("Aaron Eckhart"),
+    ("Maggie Gyllenhaal"),
+    ("Tom Hardy"),
+    ("Joseph Gordon-Levitt"),
+    ("Anne Hathaway");
+
+SELECT *
+FROM actor_names
+
+
+-- INSERT INTO movie_characters (character_name)
+-- VALUES
+--     ("Bruce Wayne"),
+--     ("Alfred" ),
+--     ("Ra's Al Ghul");
+
+-- Batman Begins          Christian Bale        Bruce Wayne
+-- Batman Begins          Michael Caine         Alfred
+-- Batman Begins          Liam Neeson           Ra's Al Ghul
+-- Batman Begins          Katie Holmes          Rachel Dawes
+-- Batman Begins          Gary Oldman           Commissioner Gordon
+-- The Dark Knight        Christian Bale        Bruce Wayne
+-- The Dark Knight        Heath Ledger          Joker
+-- The Dark Knight        Aaron Eckhart         Harvey Dent
+-- The Dark Knight        Michael Caine         Alfred
+-- The Dark Knight        Maggie Gyllenhaal     Rachel Dawes
+-- The Dark Knight Rises  Christian Bale        Bruce Wayne
+-- The Dark Knight Rises  Gary Oldman           Commissioner Gordon
+-- The Dark Knight Rises  Tom Hardy             Bane
+-- The Dark Knight Rises  Joseph Gordon-Levitt  John Blake
+-- The Dark Knight Rises  Anne Hathaway         Selina Kyle
+
+
 
 
 -- Prints a header for the movies output
@@ -165,6 +202,9 @@ VALUES
 
 -- The SQL statement for the movies output
 -- TODO!
+
+SELECT *
+FROM movie_characters;
 
 -- Prints a header for the cast output
 .print ""
